@@ -16,7 +16,7 @@ public class AdminController {
     }
 
     // some statistics
-    @GetMapping("/")
+    @GetMapping("/1")
     public CommonResponse get1() {
         return null;
     }

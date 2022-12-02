@@ -2,12 +2,16 @@ package teams.ksv.kwrs.vo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
+import java.io.Serializable;
 
 import static teams.ksv.kwrs.constant.CommonResponseConts.*;
 
 @Getter
 @Setter
-public class CommonResponse<T> {
+@ToString
+public class CommonResponse<T> implements Serializable {
 
     private int status;
 
