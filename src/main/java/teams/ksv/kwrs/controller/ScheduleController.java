@@ -18,6 +18,12 @@ public class ScheduleController {
         return CommonResponse.createSuccessResult(scheduleService.getSchedule(sid));
     }
 
+    @GetMapping("/get/{sid}")
+    public CommonResponse advisorApprove(@RequestBody ScheduleRequest request) {
+
+        return CommonResponse.createSuccessResult();
+    }
+
     @PostMapping("/update")
     public CommonResponse updateSchedule(@RequestBody ScheduleRequest request) {
         try {
