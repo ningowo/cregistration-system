@@ -27,15 +27,17 @@ public class ScheduleController {
         return CommonResponse.createSuccessResult();
     }
 
-//    @PostMapping("/update")
-//    public CommonResponse updateSchedule(@RequestBody ScheduleRequest request) {
-//        try {
-//
-//            return CommonResponse.createSuccessResult();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return CommonResponse.createFailResult();
-//        }
-//    }
+    // @PostMapping("/update")
+    // public CommonResponse updateSchedule(@RequestBody ScheduleRequest request) {
+    // try {
+    //
+    // return CommonResponse.createSuccessResult();
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // return CommonResponse.createFailResult();
+    // }
+    // }
+
+    // test
 
 }
