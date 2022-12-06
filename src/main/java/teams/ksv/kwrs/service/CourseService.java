@@ -33,6 +33,10 @@ public class CourseService {
         return courses;
     }
 
+    public List<Course> queryAll() {
+        return courseMapper.queryAll();
+    }
+
     public List<Course> queryByCondition(CourseQuery query) throws SQLException {
         String cname = query.getCourseName();
         Integer cnum = query.getCourseNumber();

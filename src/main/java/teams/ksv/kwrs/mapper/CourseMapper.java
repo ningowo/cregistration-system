@@ -15,6 +15,9 @@ public interface CourseMapper {
     @Select("select * from course where id = #{id}")
     Course queryById(int id);
 
+    @Select("select * from course")
+    List<Course> queryAll();
+
     @Select("<script>"
             + "select * from course where id in "
             + "<foreach item = 'num' index = 'index' collection = 'ids' open='(' separator=',' close=')'>"

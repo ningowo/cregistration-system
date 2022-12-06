@@ -30,6 +30,11 @@ public class CourseController {
         return CommonResponse.createSuccessResult(courseService.queryList(ids));
     }
 
+    @GetMapping("/all")
+    public CommonResponse<List<Course>> all() {
+        return CommonResponse.createSuccessResult(courseService.queryAll());
+    }
+
     @GetMapping("/cond")
     public CommonResponse<List<Course>> list(CourseQuery query) throws SQLException {
         return CommonResponse.createSuccessResult(courseService.queryByCondition(query));
