@@ -6,7 +6,7 @@ import lombok.ToString;
 
 import java.io.Serializable;
 
-import static teams.ksv.kwrs.constant.CommonResponseConts.*;
+import static teams.ksv.kwrs.vo.CommonResponseConts.*;
 
 @Getter
 @Setter
@@ -28,6 +28,11 @@ public class CommonResponse<T> implements Serializable {
         this.data = data;
     }
 
+    public CommonResponse(int status, String msg) {
+        this.status = status;
+        this.msg = msg;
+    }
+
     public CommonResponse(int status, String msg, T data) {
         this.status = status;
         this.msg = msg;
@@ -35,7 +40,7 @@ public class CommonResponse<T> implements Serializable {
     }
 
     public static <T> CommonResponse<T> createSuccessResult() {
-        return new CommonResponse<T>(SUCCESS);
+        return new CommonResponse<T>(SUCCESS, "ok");
     }
 
     public static <T> CommonResponse<T> createSuccessResult(T data) {
@@ -43,7 +48,7 @@ public class CommonResponse<T> implements Serializable {
     }
 
     public static <T> CommonResponse<T> createFailResult() {
-        return new CommonResponse<T>(COMMON_ERROR);
+        return new CommonResponse<T>(COMMON_ERROR, "Error, please contact for help.");
     }
 
 }

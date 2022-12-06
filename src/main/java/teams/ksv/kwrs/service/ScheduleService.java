@@ -2,7 +2,6 @@ package teams.ksv.kwrs.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import teams.ksv.kwrs.dao.StudentCourse;
 import teams.ksv.kwrs.mapper.ScheduleMapper;
 import teams.ksv.kwrs.model.Schedule;
 
@@ -15,17 +14,35 @@ public class ScheduleService {
     ScheduleMapper scheduleMapper;
 
     public Schedule getSchedule(int sid) {
-        List<StudentCourse> courseList = scheduleMapper.getSchedule(sid);
+        List<Integer> courseList = scheduleMapper.getSchedule(sid);
         int status = scheduleMapper.getStatus(sid);
         return new Schedule(status, courseList);
     }
 
-    public void update(Schedule schedule, int sid) {
+    public void approve(int sid) {
+        scheduleMapper.setStatus(sid, 2);
+    }
+
+    public void reject(int sid) {
+        scheduleMapper.setStatus(sid, 3);
+    }
+
+    public void submit(Schedule schedule) {
+        update(schedule, 1);
+    }
+
+    private void update(Schedule schedule, int newStatus) {
+        int sid = schedule.getSid();
+        List<Integer> courseIdList = schedule.getCourseIdList();
+
+        // update course
         scheduleMapper.deleteSchedule(sid);
-        for (StudentCourse course : schedule.getCourseList()) {
-            scheduleMapper.insert(course);
+        for (Integer courseId : courseIdList) {
+            scheduleMapper.insert(sid, courseId);
         }
 
-        scheduleMapper.setStatus(schedule.getStatus(), sid);
+        // update status
+        scheduleMapper.setStatus(sid, newStatus);
     }
+
 }

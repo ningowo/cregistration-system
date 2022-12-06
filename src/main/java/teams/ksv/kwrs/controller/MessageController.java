@@ -1,28 +1,31 @@
 package teams.ksv.kwrs.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import teams.ksv.kwrs.dao.Message;
+import teams.ksv.kwrs.service.MessageService;
 import teams.ksv.kwrs.vo.CommonResponse;
-import teams.ksv.kwrs.vo.MsgResponse;
+import teams.ksv.kwrs.vo.MessageRequest;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/msg")
 public class MessageController {
 
+    @Autowired
+    MessageService messageService;
+
+
     @PostMapping("/send")
-    public CommonResponse send(int sender, int receiver, String content) {
-        // add a line in message table
-        return null;
+    public CommonResponse send(@RequestBody MessageRequest request) {
+        return messageService.send(request.getSender(), request.getReceiver(), request.getContent()) ?
+                CommonResponse.createSuccessResult() : CommonResponse.createFailResult();
     }
 
-    // create special response as needed, like MsgResponse
-    @GetMapping("/fetch")
-    public CommonResponse<MsgResponse> fetch(int receiver) {
-        // query a line and mark read
-
-        return null;
+    @GetMapping("/fetch/{receiver}")
+    public CommonResponse<List<Message>> fetch(@PathVariable int receiver) {
+        return CommonResponse.createSuccessResult(messageService.fetch(receiver));
     }
 
 }

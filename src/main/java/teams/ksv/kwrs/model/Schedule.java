@@ -2,7 +2,6 @@ package teams.ksv.kwrs.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import teams.ksv.kwrs.dao.StudentCourse;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,14 +11,16 @@ import java.util.List;
 @Setter
 public class Schedule implements Serializable {
 
+    int sid;
+
     // 0 - not submitted, 1- submitted, 2 - approved, 3 - rejected.
     int status;
 
-    List<StudentCourse> courseList;
+    List<Integer> courseIdList;
 
-    public Schedule(int status, List<StudentCourse> courseList) {
+    public Schedule(int status, List<Integer> courseIdList) {
         this.status = status;
-        this.courseList = courseList;
+        this.courseIdList = courseIdList;
     }
 
 }

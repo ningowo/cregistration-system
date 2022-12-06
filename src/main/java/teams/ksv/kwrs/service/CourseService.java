@@ -18,19 +18,6 @@ import java.util.List;
 @Service
 public class CourseService {
 
-    /**
-     * Two way to to execute sql
-     *
-     * 1. Mybatis mapper(use CourseMapper)
-     * 1.1. use Annotation like @Insert to run simple sql
-     * 1.2.(Real world solution!) use xml file to denote more complex sql(search online)
-     *
-     * 2. Directly connect(Data Source)
-     * Can directly get configured data source(defined in /resources/application.properties), and just run sql string,
-     * But need to deal with a lot of format stuff
-     *
-      */
-
     @Autowired
     private CourseMapper courseMapper;
 
@@ -46,12 +33,6 @@ public class CourseService {
         return courses;
     }
 
-    /**
-     * Maybe you can find better way to do this
-     * @param query
-     * @return
-     * @throws SQLException
-     */
     public List<Course> queryByCondition(CourseQuery query) throws SQLException {
         String cname = query.getCourseName();
         Integer cnum = query.getCourseNumber();

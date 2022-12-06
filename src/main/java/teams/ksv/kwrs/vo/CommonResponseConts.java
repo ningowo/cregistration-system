@@ -1,4 +1,4 @@
-package teams.ksv.kwrs.constant;
+package teams.ksv.kwrs.vo;
 
 public class CommonResponseConts {
 

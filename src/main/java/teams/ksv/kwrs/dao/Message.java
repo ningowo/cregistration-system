@@ -1,12 +1,15 @@
 package teams.ksv.kwrs.dao;
 
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class Message {
 
   private long id;
   private long senderId;
   private long recipientId;
-  private java.sql.Timestamp sendTime;
+  private Date sendTime;
   private String content;
   private long readMark;
 
@@ -38,11 +41,11 @@ public class Message {
   }
 
 
-  public java.sql.Timestamp getSendTime() {
+  public Date getSendTime() {
     return sendTime;
   }
 
-  public void setSendTime(java.sql.Timestamp sendTime) {
+  public void setSendTime(Timestamp sendTime) {
     this.sendTime = sendTime;
   }
 

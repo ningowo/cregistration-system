@@ -1,24 +1,26 @@
 package teams.ksv.kwrs.dao;
 
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
 
 @ToString
 public class Course {
 
-  private long id;
+  @Id
+  private int id;
   private String courseName;
-  private long courseNumber;
+  private int courseNumber;
   private String professor;
-  private long creditHour;
+  private int creditHour;
   private String room;
   private String classTime;
 
 
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
@@ -32,11 +34,11 @@ public class Course {
   }
 
 
-  public long getCourseNumber() {
+  public int getCourseNumber() {
     return courseNumber;
   }
 
-  public void setCourseNumber(long courseNumber) {
+  public void setCourseNumber(int courseNumber) {
     this.courseNumber = courseNumber;
   }
 
@@ -50,11 +52,11 @@ public class Course {
   }
 
 
-  public long getCreditHour() {
+  public int getCreditHour() {
     return creditHour;
   }
 
-  public void setCreditHour(long creditHour) {
+  public void setCreditHour(int creditHour) {
     this.creditHour = creditHour;
   }
 

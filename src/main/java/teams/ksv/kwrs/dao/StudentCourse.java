@@ -1,11 +1,9 @@
 package teams.ksv.kwrs.dao;
 
-
 public class StudentCourse {
 
   private long studentId;
   private long courseId;
-  private long state;
 
 
   public long getStudentId() {
@@ -23,15 +21,6 @@ public class StudentCourse {
 
   public void setCourseId(long courseId) {
     this.courseId = courseId;
-  }
-
-
-  public long getState() {
-    return state;
-  }
-
-  public void setState(long state) {
-    this.state = state;
   }
 
 }
