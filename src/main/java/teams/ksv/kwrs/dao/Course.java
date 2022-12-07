@@ -3,8 +3,10 @@ package teams.ksv.kwrs.dao;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
+
 @ToString
-public class Course {
+public class Course implements Serializable {
 
   @Id
   private int id;

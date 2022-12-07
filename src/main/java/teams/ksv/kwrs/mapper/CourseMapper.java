@@ -1,9 +1,6 @@
 package teams.ksv.kwrs.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import teams.ksv.kwrs.dao.Course;
 import teams.ksv.kwrs.model.DeptRegisStat;
 
@@ -20,8 +17,8 @@ public interface CourseMapper {
 
     @Select("<script>"
             + "select * from course where id in "
-            + "<foreach item = 'num' index = 'index' collection = 'ids' open='(' separator=',' close=')'>"
-            + "#{num}"
+            + "<foreach collection=\"list\" item=\"id\" index=\"index\" open=\"(\" separator=\",\" close=\")\">"
+            + "#{id}"
             + "</foreach>"
             + "</script>")
     List<Course> queryList(List<Integer> ids);

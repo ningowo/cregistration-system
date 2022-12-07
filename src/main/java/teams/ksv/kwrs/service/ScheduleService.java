@@ -2,8 +2,10 @@ package teams.ksv.kwrs.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import teams.ksv.kwrs.dao.Course;
 import teams.ksv.kwrs.mapper.ScheduleMapper;
 import teams.ksv.kwrs.model.Schedule;
+import teams.ksv.kwrs.vo.ScheduleVO;
 
 import java.util.List;
 
@@ -13,10 +15,14 @@ public class ScheduleService {
     @Autowired
     ScheduleMapper scheduleMapper;
 
-    public Schedule getSchedule(int sid) {
-        List<Integer> courseList = scheduleMapper.getSchedule(sid);
+    @Autowired
+    CourseService courseService;
+
+    public ScheduleVO getSchedule(int sid) {
+        List<Integer> courseIdList = scheduleMapper.getSchedule(sid);
         int status = scheduleMapper.getStatus(sid);
-        return new Schedule(sid, status, courseList);
+        List<Course> courseList = courseService.queryList(courseIdList);
+        return new ScheduleVO(sid, status, courseList);
     }
 
     public void approve(int sid) {
