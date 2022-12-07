@@ -16,7 +16,7 @@ public class ScheduleService {
     public Schedule getSchedule(int sid) {
         List<Integer> courseList = scheduleMapper.getSchedule(sid);
         int status = scheduleMapper.getStatus(sid);
-        return new Schedule(status, courseList);
+        return new Schedule(sid, status, courseList);
     }
 
     public void approve(int sid) {

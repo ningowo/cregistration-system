@@ -8,8 +8,7 @@ public class Student {
   private String pwd;
   private long deptId;
   private long advisorId;
-  private long requestStatus;
-
+  private long studentStatus;
 
   public long getId() {
     return id;
@@ -56,12 +55,12 @@ public class Student {
   }
 
 
-  public long getRequestStatus() {
-    return requestStatus;
+  public long getStudentStatus() {
+    return studentStatus;
   }
 
-  public void setRequestStatus(long requestStatus) {
-    this.requestStatus = requestStatus;
+  public void setStudentStatus(long studentStatus) {
+    this.studentStatus = studentStatus;
   }
 
 }

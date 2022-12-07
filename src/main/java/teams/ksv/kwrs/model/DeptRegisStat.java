@@ -13,7 +13,7 @@ public class DeptRegisStat {
 
     String deptName;
 
-    int RequestStatus;
+    int scheduleStatus;
 
     int cnt;
 

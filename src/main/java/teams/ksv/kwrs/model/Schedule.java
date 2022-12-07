@@ -18,7 +18,8 @@ public class Schedule implements Serializable {
 
     List<Integer> courseIdList;
 
-    public Schedule(int status, List<Integer> courseIdList) {
+    public Schedule(int sid, int status, List<Integer> courseIdList) {
+        this.sid = sid;
         this.status = status;
         this.courseIdList = courseIdList;
     }

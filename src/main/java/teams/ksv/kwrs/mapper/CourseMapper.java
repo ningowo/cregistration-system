@@ -38,13 +38,13 @@ public interface CourseMapper {
     void del(int id);
 
     @Select("WITH st AS (\n" +
-            "    SELECT dept_id, request_status, COUNT(*) cnt\n" +
+            "    SELECT dept_id, schedule_status, COUNT(*) cnt\n" +
             "    FROM student s\n" +
-            "    GROUP BY dept_id, request_status\n" +
+            "    GROUP BY dept_id, schedule_status\n" +
             "    HAVING COUNT(*) > 0\n" +
             "    ORDER BY dept_id DESC\n" +
             ")\n" +
-            "SELECT d.dept_name, st.request_status, st.cnt\n" +
+            "SELECT d.dept_name, st.schedule_status, st.cnt\n" +
             "FROM st\n" +
             "         LEFT JOIN department d\n" +
             "                   ON st.dept_id = d.id\n" +

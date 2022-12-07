@@ -11,10 +11,10 @@ public interface ScheduleMapper {
     @Select("select course_id from student_course where student_id = #{sid}")
     List<Integer> getSchedule(int sid);
 
-    @Select("select request_status from student where id = #{sid}")
+    @Select("select schedule_status from student where id = #{sid}")
     int getStatus(int sid);
 
-    @Update("update student set request_status=#{status} where id = #{sid}")
+    @Update("update student set schedule_status=#{status} where id = #{sid}")
     void setStatus(int sid, int status);
 
     @Insert("insert into student_course (student_id, course_id) values (#{sid}, #{courseId})")
